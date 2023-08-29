@@ -4,6 +4,8 @@ const port = (process.env.PORT || 3000)
 
 app.set('view engine', 'ejs');
 
+
+
 let myVariableServer = 'soft coded server data';
 
 app.get('/barry', function (req, res) {
