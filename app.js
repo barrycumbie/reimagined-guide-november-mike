@@ -4,8 +4,6 @@ const port = (process.env.PORT || 3000)
 
 app.set('view engine', 'ejs');
 
-
-
 let myVariableServer = 'soft coded server data';
 
 app.get('/barry', function (req, res) {
@@ -15,6 +13,21 @@ app.get('/barry', function (req, res) {
   }
   );
 })
+
+app.post('/postClientData', function (req, res) {
+  
+   console.log("body: ", req.body)
+   console.log("params: ", req.params['userName']);
+  
+  myVariableServer = 'now we\'ve posted';
+
+  res.render('index', 
+  {
+    'myVariableClient' : myVariableServer 
+  }
+  );
+})
+
 
 app.get('/', function (req, res) {
   res.send('<h1>Hello World From Express & a PaaS/Render</h1>')
